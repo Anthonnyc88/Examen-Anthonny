@@ -5,6 +5,8 @@
  */
 package examen.anthonny;
 
+import Interfaz.Ventana;
+
 /**
  *
  * @author Anthonny
@@ -16,6 +18,8 @@ public class ExamenAnthonny {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Ventana a = new Ventana();
+        a.setVisible(true);
     }
     
 }

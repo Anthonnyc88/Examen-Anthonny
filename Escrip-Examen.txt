@@ -1,0 +1,50 @@
+-- Table: public.compras
+
+-- DROP TABLE public.compras;
+
+CREATE TABLE public.compras
+(
+    nombre_usuario character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    edad integer NOT NULL,
+    sexo character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    identificador_producto integer NOT NULL,
+    fecha character varying(20) COLLATE pg_catalog."default"
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.compras
+    OWNER to postgres;
+
+-- Index: fki_fk_productos
+
+-- DROP INDEX public.fki_fk_productos;
+
+CREATE INDEX fki_fk_productos
+    ON public.compras USING btree
+    (identificador_producto)
+    TABLESPACE pg_default;
+
+
+
+-- Table: public.producto
+
+-- DROP TABLE public.producto;
+
+CREATE TABLE public.producto
+(
+    identificador integer NOT NULL,
+    nombre character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    precio integer NOT NULL,
+    tipo_persona character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT producto_pkey PRIMARY KEY (identificador)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.producto
+    OWNER to postgres;
